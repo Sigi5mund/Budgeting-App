@@ -45,8 +45,7 @@ class Transaction
   def self.total_price
     sql = "select SUM(price) from transactions"
     values =[]
-    total_price = SqlRunner.run(sql, values)
-    return total_price.to_i
+    SqlRunner.run(sql, values)
   end
 
   def update

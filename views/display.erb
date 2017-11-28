@@ -5,7 +5,12 @@
   <h3> Helping you budget, like a Pro! </h3>
 </div>
 
+<% @total = 0 %>
+<% @transactions.each do |transaction| %>
+  <% @total += transaction.price.to_i %>
+<% end %>
 
+<h5> Your total spend is upto: £<%= @total %> </h5>
 
 <div>
   <p> Here are your latest transactions </p>

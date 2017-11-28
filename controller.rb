@@ -7,6 +7,7 @@ require_relative('models/vendor.rb')
 @balance = 1000
 
 get '/' do
+  @balance = 1000
   @transactions = Transaction.all
   @transactions_last_five = Transaction.last_five
   @tags = Tag.all

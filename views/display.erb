@@ -10,10 +10,11 @@
   <% @total += transaction.price.to_i %>
 <% end %>
 
-<h5> Your total spend is upto: £<%= @total %> </h5>
+<h4> Your total spend is upto: £<%= @total %>. Whilst your budget for this month is £<%= @balance %>. That leaves £<%= @balance - @total %>. </h4>
+
 
 <div>
-  <p> Here are your latest transactions </p>
+  <h5> Summary of latest transactions </h5>
 
   <div id="transaction table">
     <table style="width:100%">

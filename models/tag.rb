@@ -35,6 +35,12 @@ attr_accessor :id, :category
     SqlRunner.run(sql, values)
   end
 
+  def total
+    sql = "select SUM(price) from transactions where transactions.tag_id = $1"
+    values =[@id]
+    result = SqlRunner.run(sql, values)
+    return result.first['sum']
+  end
 
   def self.find(id)
     sql = "SELECT * FROM tags

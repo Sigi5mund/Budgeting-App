@@ -42,12 +42,6 @@ class Transaction
     return self.find(vendor_id)
   end
 
-  def self.total_price
-    sql = "select SUM(price) from transactions"
-    values =[]
-    SqlRunner.run(sql, values)
-  end
-
   def update
     sql = "UPDATE transactions SET (name, tag_id, price, vendor_id, date, comment) = ($1, $2, $3, $4, $5, $6)
     WHERE id = $7"

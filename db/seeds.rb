@@ -1,5 +1,6 @@
 require_relative('../models/transaction.rb')
 require_relative('../models/tag.rb')
+require_relative('../models/vendor.rb')
 require('pry-byebug')
 
 tag1 = Tag.new({'category' => 'groceries'})

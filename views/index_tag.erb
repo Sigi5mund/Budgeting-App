@@ -6,14 +6,17 @@
    <table>
     <tr>
       <th> Category</th>
+      <th> Spending on this Category </th>
     </tr>
   <% @tags.each do |tag| %>
    <tr>
      <td><%= tag.category %></td>
+     <td> <%= tag.total %></td>
+
      <td> <a href="/tags/<%= tag.id %>/edit">Edit</a> </td>
      <td> <form action="/tags/<%= tag.id %>/delete" method="POST"><input type="submit" value="Delete"></form> </td>
-    <% end %>
 
+     <% end %>
     </tr>
 
  </table>

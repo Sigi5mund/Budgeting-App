@@ -1,5 +1,6 @@
 <h2>Editing Transaction <%= @transaction.id %></h2>
 <form method="POST" action="/transactions/<%= @transaction.id %>">
+  <input type="hidden" name="_method" value="put">
   <div class="form">
 
 
@@ -33,7 +34,7 @@
     <div class="form">
 
       <label for="tag_id">Select Category:</label>
-      <select name="tag" id="tag_id">
+      <select name="tag_id" id="tag_id">
 
         <% @tags.each do |tag| %>
           <option value=<%= tag.id %> <%= "selected" if tag.id == @transaction.tag_id %>><%= tag.category.capitalize %></option>
@@ -44,6 +45,8 @@
 
 <div class="form">
   <input type="submit" value="Upload Transaction"/>
+
+
 </div>
 
 </div>

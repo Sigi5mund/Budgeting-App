@@ -37,7 +37,7 @@ get '/transactions/:id/edit' do
   erb(:edit)
 end
 
-post '/transactions/:id' do
+put '/transactions/:id' do
   transaction = Transaction.new(params)
   transaction.update
   redirect to "/transactions/#{params['id']}"

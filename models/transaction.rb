@@ -29,8 +29,8 @@ class Transaction
     return Tag.find(@tag_id)
   end
 
-  def tag_category
-    return Tag.find(@tag_id).category.capitalize
+  def by_tag
+    return self.find(tag_id)
   end
 
   def update

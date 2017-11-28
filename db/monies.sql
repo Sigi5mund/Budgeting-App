@@ -18,6 +18,6 @@ name VARCHAR(255),
 tag_id INT8 references tags(id) ON DELETE CASCADE,
 price NUMERIC,
 vendor_id INT8 references vendors(id) ON DELETE CASCADE,
-date VARCHAR(255),
+date DATE,
 comment VARCHAR(255)
 );

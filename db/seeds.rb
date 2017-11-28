@@ -36,7 +36,7 @@ transaction1 = Transaction.new({
   'tag_id' => tag1.id,
   'price' => 65,
   'vendor_id' => vendor1.id,
-  'date' => '20/11/17',
+  'date' => '2017/11/20',
   'comment' => 'Forgot washing powder'})
 
 transaction2 = Transaction.new({
@@ -44,7 +44,7 @@ transaction2 = Transaction.new({
   'tag_id' => tag2.id,
   'price' => 15,
   'vendor_id' => vendor2.id,
-  'date' => '19/11/17',
+  'date' => '2017/11/20',
   'comment' => 'Claim on expenses'})
 
 transaction3 = Transaction.new({
@@ -52,7 +52,7 @@ transaction3 = Transaction.new({
   'tag_id' => tag3.id,
   'price' => 6,
   'vendor_id' => vendor3.id,
-  'date' => '20/11/17',
+  'date' => '2017/11/19',
   'comment' => ''})
 
 transaction4 = Transaction.new({
@@ -60,7 +60,7 @@ transaction4 = Transaction.new({
   'tag_id' => tag4.id,
   'price' => 43,
   'vendor_id' => vendor4.id,
-  'date' => '22/11/17',
+  'date' => '2017/11/09',
   'comment' => 'Used the voucher for discount!'})
 
 transaction5 = Transaction.new({
@@ -68,7 +68,7 @@ transaction5 = Transaction.new({
   'tag_id' => tag5.id,
   'price' => 105,
   'vendor_id' => vendor5.id,
-  'date' => '24/11/17',
+  'date' => '2017/11/24',
   'comment' => 'Higher than last Autumn!'})
 
 transaction6 = Transaction.new({
@@ -76,7 +76,7 @@ transaction6 = Transaction.new({
   'tag_id' => tag6.id,
   'price' => 98,
   'vendor_id' => vendor6.id,
-  'date' => '25/11/17',
+  'date' => '2017/11/25',
   'comment' => ''})
 
 transaction1.save

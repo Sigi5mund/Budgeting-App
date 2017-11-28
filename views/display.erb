@@ -1,8 +1,6 @@
 <div>
 
-  <h1> TheMoneyApp </h1>
-
-  <h3> Helping you budget, like a Pro! </h3>
+  <h1> ::TheMoneyApp:: Helping you budget, like a Pro! </h1>
 </div>
 
 <% @total = 0 %>
@@ -10,7 +8,11 @@
   <% @total += transaction.price.to_i %>
 <% end %>
 
-<h4> Your total spend is upto: £<%= @total %>. Whilst your budget for this month is £<%= @balance %>. That leaves £<%= @balance - @total %>. </h4>
+<% if @total > @balance%>
+  <h2> You have gone over budget! </h2>
+<% else %>
+  <h4> Your total spend is upto: £<%= @total %>. Whilst your budget for this month is £<%= @balance %>. That leaves £<%= @balance - @total %>. </h4>
+<%end %>
 
 
 <div>

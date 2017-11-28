@@ -23,6 +23,11 @@ get '/tags' do
   erb(:index_tag)
 end
 
+get '/vendors' do
+  @vendors = Vendor.all
+  erb(:index_vendor)
+end
+
 get '/transactions/new' do
   @tags = Tag.all
   @vendors = Vendor.all
@@ -32,6 +37,11 @@ end
 get '/tags/new' do
   @tags =Tag.all
   erb(:new_tag)
+end
+
+get '/vendors/new' do
+  @vendors =Vendor.all
+  erb(:new_vendor)
 end
 
 post '/transactions' do
@@ -44,6 +54,11 @@ post '/tags' do
   redirect to '/tags'
 end
 
+post '/vendors' do
+  Vendor.new(params).save
+  redirect to '/vendors'
+end
+
 get '/transactions/:id' do
   @transaction = Transaction.find(params['id'])
   erb(:show)
@@ -52,6 +67,11 @@ end
 get '/tags/:id' do
   @tag = Tag.find(params['id'])
   erb(:show_tag)
+end
+
+get '/vendors/:id' do
+  @vendor = Vendor.find(params['id'])
+  erb(:show_vendor)
 end
 
 get '/transactions/:id/edit' do
@@ -67,6 +87,12 @@ get '/tags/:id/edit' do
   erb(:edit_tag)
 end
 
+get '/vendors/:id/edit' do
+  @vendors = Vendor.all
+  @vendor = Vendor.find(params['id'])
+  erb(:edit_vendor)
+end
+
 put '/transactions/:id' do
   transaction = Transaction.new(params)
   transaction.update
@@ -79,6 +105,12 @@ put '/tags/:id' do
   redirect to "/tags/#{params['id']}"
 end
 
+put '/vendors/:id' do
+  vendor = Vendor.new(params)
+  vendor.update
+  redirect to "/vendors/#{params['id']}"
+end
+
 post '/transactions/:id/delete' do
   transaction = Transaction.find(params['id'])
   transaction.delete
@@ -89,4 +121,10 @@ post '/tags/:id/delete' do
   tag = Tag.find(params['id'])
   tag.delete
   redirect to '/tags'
+end
+
+post '/vendors/:id/delete' do
+  vendor = Vendor.find(params['id'])
+  vendor.delete
+  redirect to '/vendors'
 end

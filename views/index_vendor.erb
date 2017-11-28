@@ -1,0 +1,17 @@
+<h2>All Vendors</h2>
+
+<div id="vendor table">
+  <table style="width:100%">
+    <tr>
+      <th> Category</th>
+    </tr>
+  <% @vendors.each do |vendor| %>
+   <tr>
+     <td><%= vendor.name %></td>
+     <td> <a href="/vendors/<%= vendor.id %>/edit">Edit</a> </td>
+     <td> <form action="/vendors/<%= vendor.id %>/delete" method="POST"><input type="submit" value="Delete"></form> </td>
+    <% end %>
+
+    </tr>
+
+ </table>

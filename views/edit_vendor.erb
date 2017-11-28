@@ -1,0 +1,19 @@
+<h2>Editing Vendor <%= @vendor.id %></h2>
+<form method="POST" action="/vendors/<%= @vendor.id %>">
+  <input type="hidden" name="_method" value="put">
+  <div class="form">
+
+
+    <div class="form">
+      <label for="name">Name:</label>
+      <input type="text" name="name" id="name"
+      value="<%= @vendor.name %>"/>
+    </div>
+
+
+<div class="form">
+  <input type="submit" value="Save Vendor"/>
+</div>
+
+</div>
+</form>

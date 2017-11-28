@@ -15,6 +15,7 @@
     <div class="form">
       <label for="vendor-select">Select Vendor:</label>
       <select name="vendor_id" id="vendor_select">
+        <option value="" disabled selected>Select Vendor</option></option>
         <% @vendors.each do |vendor| %>
         <option value=<%= vendor.id %>><%= vendor.name.capitalize %></option>
         <% end %>
@@ -34,6 +35,7 @@
     <div class="form">
       <label for="tag-select">Select Tag:</label>
       <select name="tag_id" id="tag_select">
+        <option value="" disabled selected>Select Category</option></option>
         <% @tags.each do |tag| %>
         <option value=<%= tag.id %>><%= tag.category.capitalize %></option>
         <% end %>

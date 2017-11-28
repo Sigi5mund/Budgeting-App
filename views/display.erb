@@ -38,3 +38,20 @@
       </tr>
    </table>
 </div>
+
+<h5> Here you can see your spending by category </h5>
+<div>
+  <div id="tag table">
+     <table>
+      <tr>
+        <th> Category</th>
+        <th> Spending </th>
+      </tr>
+    <% @tags.each do |tag| %>
+     <tr>
+       <td><%= tag.category %></td>
+       <td> <%= tag.total %></td>
+       <%end%>
+    </tr>
+  </table>
+</div>

@@ -8,6 +8,7 @@ require_relative('models/vendor.rb')
 
 get '/' do
   @transactions = Transaction.all
+  @transactions_last_five = Transaction.last_five
   @tags = Tag.all
   @vendors = Vendor.all
   erb(:display)

@@ -1,5 +1,6 @@
 <h2>All Transactions</h2>
 
+<a href='/transactions/new'>Add Transaction</a>
 <div id="transaction table">
   <table style="width:100%">
     <tr>
@@ -13,7 +14,7 @@
   <% @transactions.each do |transaction| %>
    <tr>
      <td><%= transaction.name %></td>
-     <td><%= transaction.price %></td>
+     <td>£<%= transaction.price %></td>
      <td><%= transaction.vendor.name %></td>
      <td><%= transaction.tag.category %></td>
      <td><%= transaction.date %></td>
@@ -21,9 +22,7 @@
      <td> <a href="/transactions/<%= transaction.id %>/edit">Edit</a> </td>
      <td> <form action="/transactions/<%= transaction.id %>/delete" method="POST"><input type="submit" value="Delete"></form> </td>
     <% end %>
-
     </tr>
-
  </table>
 
 

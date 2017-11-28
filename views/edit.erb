@@ -17,7 +17,7 @@
 
 
     <div class="form">
-      <label for="vendor_id">Select Category:</label>
+      <label for="vendor_id">Select Vendor:</label>
       <select name="vendor_id" id="vendor_id">
         <% @vendors.each do |vendor| %>
           <option value=<%= vendor.id %> <%= "selected" if vendor.id == @transaction.vendor_id %>><%= vendor.name.capitalize %></option>
@@ -34,7 +34,6 @@
       <label for="comment">Comments:</label>
       <input type="text" name="comment" id="comment" value="<%= @transaction.comment %>"/>
     </div>
-
 
     <div class="form">
       <label for="tag_id">Select Category:</label>

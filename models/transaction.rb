@@ -42,6 +42,13 @@ class Transaction
     return self.find(vendor_id)
   end
 
+  def self.total_price
+    sql = "select SUM(price) from transactions"
+    values =[]
+    total_price = SqlRunner.run(sql, values)
+    return total_price.to_i
+  end
+
   def update
     sql = "UPDATE transactions SET (name, tag_id, price, vendor_id, date, comment) = ($1, $2, $3, $4, $5, $6)
     WHERE id = $7"
@@ -55,6 +62,14 @@ class Transaction
     values = [@id]
     SqlRunner.run(sql, values)
   end
+
+  def self.last_five
+    sql = "select * from transactions order by date DESC limit 5;"
+    values = []
+    transaction_data = SqlRunner.run(sql, values)
+    return map_items(transaction_data)
+  end
+
 
   def self.all
     sql = "SELECT * FROM transactions"

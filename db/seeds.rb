@@ -55,7 +55,7 @@ transaction3 = Transaction.new({
   'comment' => ''})
 
 transaction4 = Transaction.new({
-  'name' => 'Meal with gf',
+  'name' => 'Meal',
   'tag_id' => tag4.id,
   'price' => 43,
   'vendor_id' => vendor4.id,

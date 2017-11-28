@@ -13,8 +13,12 @@
     </div>
 
     <div class="form">
-      <label for="store">Store:</label>
-      <input type="text" name="store" id="store"/>
+      <label for="vendor-select">Select Vendor:</label>
+      <select name="vendor_id" id="vendor_select">
+        <% @vendors.each do |vendor| %>
+        <option value=<%= vendor.id %>><%= vendor.name.capitalize %></option>
+        <% end %>
+      </select>
     </div>
 
     <div class="form">

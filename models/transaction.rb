@@ -1,26 +1,27 @@
 require_relative('../db/sql_runner')
 require_relative('./tag.rb')
+require_relative('./vendor.rb')
 
 class Transaction
 
-   attr_accessor :tag_id, :price, :comment, :store, :date, :name, :id
+   attr_accessor :tag_id, :price, :comment, :vendor_id, :date, :name, :id
 
   def initialize(options)
      @id = options['id'].to_i if options['id']
      @name = options['name']
      @tag_id = options['tag_id'].to_i
      @price = options['price']
-     @store = options['store']
+     @vendor_id = options['vendor_id'].to_i
      @date = options['date']
      @comment = options['comment']
   end
 
   def save
     sql = "INSERT INTO transactions
-    (name, tag_id, price, store, date, comment)
+    (name, tag_id, price, vendor_id, date, comment)
     VALUES ($1, $2, $3, $4, $5, $6)
     RETURNING id"
-    values = [@name, @tag_id, @price, @store, @date, @comment]
+    values = [@name, @tag_id, @price, @vendor_id, @date, @comment]
     result = SqlRunner.run(sql, values)
     @id = result.first['id']
   end
@@ -29,14 +30,22 @@ class Transaction
     return Tag.find(@tag_id)
   end
 
+  def vendor
+    return Vendor.find(@vendor_id)
+  end
+
   def by_tag
     return self.find(tag_id)
   end
 
+  def by_vendor
+    return self.find(vendor_id)
+  end
+
   def update
-    sql = "UPDATE transactions SET (name, tag_id, price, store, date, comment) = ($1, $2, $3, $4, $5, $6)
+    sql = "UPDATE transactions SET (name, tag_id, price, vendor_id, date, comment) = ($1, $2, $3, $4, $5, $6)
     WHERE id = $7"
-    values = [@name, @tag_id, @price, @store, @date, @comment, @id]
+    values = [@name, @tag_id, @price, @vendor_id, @date, @comment, @id]
     SqlRunner.run(sql, values)
   end
 

@@ -2,12 +2,14 @@ require('sinatra')
 require('sinatra/contrib/all')
 require_relative('models/tag.rb')
 require_relative('models/transaction.rb')
+require_relative('models/vendor.rb')
 
 @balance = 1000
 
 get '/' do
   @transactions = Transaction.all
   @tags = Tag.all
+  @vendors = Vendor.all
   erb(:display)
 end
 
@@ -18,6 +20,7 @@ end
 
 get '/transactions/new' do
   @tags = Tag.all
+  @vendors = Vendor.all
   erb(:new)
 end
 
@@ -33,6 +36,7 @@ end
 
 get '/transactions/:id/edit' do
   @tags = Tag.all
+  @vendors = Vendor.all
   @transaction = Transaction.find(params['id'])
   erb(:edit)
 end

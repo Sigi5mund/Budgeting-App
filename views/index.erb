@@ -1,0 +1,33 @@
+<h2>All Transactions</h2>
+
+<div id="transaction table">
+  <table style="width:100%">
+    <tr>
+      <th> Name</th>
+      <th> Price </th>
+      <th> Store </th>
+      <th> Tag </th>
+      <th> Date </th>
+      <th> Comments </th>
+    </tr>
+  <% @transactions.each do |transaction| %>
+   <tr>
+     <td><%= transaction.name %></td>
+     <td><%= transaction.price %></td>
+     <td><%= transaction.store %></td>
+     <td><%= transaction.tag_category %></td>
+     <td><%= transaction.date %></td>
+     <td><%= transaction.comment %></td>
+     <td> <a href="/transactions/<%= transaction.id %>/edit">Edit</a> </td>
+     <td> <form action="/transactions/<%= transaction.id %>/delete" method="POST"><input type="submit" value="Delete"></form> </td>
+    <% end %>
+
+    </tr>
+
+ </table>
+
+
+</div>
+
+
+</div>

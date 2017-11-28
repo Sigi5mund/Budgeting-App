@@ -1,0 +1,11 @@
+<h2><%=  %></h2>
+
+<p>Name: <%= @transaction.name %></p>
+<p>Price: <%= @transaction.price %></p>
+<p>Store: <%= @transaction.store %></p>
+<p>Date: <%= @transaction.date %></p>
+<p>Category: <%= @transaction.tag.category.capitalize %></p>
+<p>Comments: <%= @transaction.comment %></p>
+
+<a href="/transactions/<%= @transaction.id %>/edit">Edit Transaction</a>
+<form action="/transactions/<%= @transaction.id %>/delete" method="POST"><input type="submit" value="Delete"></form>

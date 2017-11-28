@@ -1,0 +1,44 @@
+<h2>New Transaction</h2>
+<form method="POST" action="/transactions">
+  <div class="form">
+
+    <div class="form">
+      <label for="name">Name:</label>
+      <input type="text" name="name" id="name"/>
+    </div>
+
+    <div class="form">
+      <label for="price">Price:</label>
+      <input type="number" name="price" id="price"/>
+    </div>
+
+    <div class="form">
+      <label for="store">Store:</label>
+      <input type="text" name="store" id="store"/>
+    </div>
+
+    <div class="form">
+      <label for="date">Date:</label>
+      <input type="text" name="date" id="date"/>
+    </div>
+
+    <div class="form">
+      <label for="comment">Comments:</label>
+      <input type="text" name="comment" id="comment"/>
+    </div>
+
+    <div class="form">
+      <label for="tag-select">Select Tag:</label>
+      <select name="tag_id" id="tag_select">
+        <% @tags.each do |tag| %>
+        <option value=<%= tag.id %>><%= tag.category.capitalize %></option>
+        <% end %>
+      </select>
+    </div>
+
+    <div class="form">
+      <input type="submit" value="Upload Transaction"/>
+    </div>
+
+  </div>
+</form>

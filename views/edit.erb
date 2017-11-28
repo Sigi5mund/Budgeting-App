@@ -1,0 +1,50 @@
+<h2>Editing Transaction <%= @transaction.id %></h2>
+<form method="POST" action="/transactions/<%= @transaction.id %>">
+  <div class="form">
+
+
+    <div class="form">
+      <label for="name">Name:</label>
+      <input type="text" name="name" id="name"
+      value="<%= @transaction.name %>"/>
+    </div>
+
+    <div class="form">
+      <label for="price">Price:</label>
+      <input type="number" name="price" id="price" value="<%= @transaction.price %>"/>
+    </div>
+
+    <div class="form">
+      <label for="store">Store:</label>
+      <input type="text" name="store" id="store" value="<%= @transaction.store %>"/>
+    </div>
+
+    <div class="form">
+      <label for="date">Date:</label>
+      <input type="text" name="date" id="date" value="<%= @transaction.date %>"/>
+    </div>
+
+    <div class="form">
+      <label for="comment">Comments:</label>
+      <input type="text" name="comment" id="comment" value="<%= @transaction.comment %>"/>
+    </div>
+
+
+    <div class="form">
+
+      <label for="tag_id">Select Category:</label>
+      <select name="tag" id="tag_id">
+
+        <% @tags.each do |tag| %>
+          <option value=<%= tag.id %> <%= "selected" if tag.id == @transaction.tag_id %>><%= tag.category.capitalize %></option>
+        <% end %>
+      </select>
+    </div>
+
+
+<div class="form">
+  <input type="submit" value="Upload Transaction"/>
+</div>
+
+</div>
+</form>

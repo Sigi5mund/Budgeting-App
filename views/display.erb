@@ -1,6 +1,5 @@
 <div>
-
-  <h1> ::BudgetBored:: Short budgets, long Goals </h1>
+  <h1> ::BudgetBored:: Short Term Budget, Long Term Goals </h1>
 </div>
 
 <div >
@@ -11,15 +10,30 @@
 <% end %>
 
 <% if @total > @balance%>
-  <% @fail_total = @total - @balance%>
-  <h2 class="warning-box"> You have gone over your intended budget by £<%= sprintf('%.2f', (@fail_total.to_f/100)) %> </h2>
-<% else %>
-  <% @grand_total =  @balance - @total%>
-   <h4>  Your Goal is to be under £<%= sprintf('%.2f', (@balance.to_f/100)) %><a href='/budgets/1/edit'>[Update]</a>. Your total spend so far is: £<%= sprintf('%.2f', (@total.to_f/100)) %>. That leaves £<%= sprintf('%.2f', (@grand_total.to_f/100)) %> to play with. </h4>
+  <% @fail_total = @total - @balance %>
+  <h2 class="warning-box">  Your goal budget was £<%= sprintf('%.2f', (@balance.to_f/100)) %> but you have gone over by £<%= sprintf('%.2f', (@fail_total.to_f/100)) %>.</h2>
 <%end %>
 </div>
 
-<% @grand_total = @total - @balance %>
+<% @grand_total =  @balance - @total%>
+
+
+<div>
+  <table>
+    <tr>
+      <th>Goal Budget</th>
+      <th>Spend so Far</th>
+      <th>Budget Remaining</th>
+    </tr>
+   <tr>
+     <td>£<%= sprintf('%.2f', (@balance.to_f/100)) %></td>
+     <td>£<%= sprintf('%.2f', (@total.to_f/100)) %></td>
+     <td>£<%= sprintf('%.2f', (@grand_total.to_f/100)) %></td>
+    </tr>
+ </table>
+
+
+</div>
 <div>
   <h5> Summary of the Last Five Transactions </h5>
 </div>
@@ -31,7 +45,6 @@
         <th> Vendor </th>
         <th> Tag </th>
         <th> Date </th>
-
       </tr>
     <% @transactions_last_five.each do |transaction| %>
      <tr>
@@ -45,7 +58,6 @@
    </table>
 </div>
 
-<h5> Here you can see your spending by category </h5>
 
   <div>
      <table>
@@ -62,11 +74,10 @@
   </table>
 </div>
 
-<h5> Here you can see your spending by vendor </h5>
 <div>
   <table>
     <tr>
-      <th> Name</th>
+      <th> Vendor</th>
       <th> Spending</th>
     </tr>
   <% @vendors.each do |vendor| %>

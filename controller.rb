@@ -169,3 +169,13 @@ post '/budgets/:id/delete' do
   budget.delete
   redirect to '/budgets'
 end
+
+get '/transaction/delete' do
+  @transactions = Transaction.all
+  erb(:transactions_clear)
+end
+
+post '/transaction/delete/all' do
+  Transaction.delete_all
+  redirect to '/budgets'
+end

@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>TheMoneyApp</title>
+  <title>BudgetBored</title>
   <link href="https://fonts.googleapis.com/css?family=Amarante|Rye" rel="stylesheet">
-  <link rel="stylesheet" href="/style.css">
+
+  <link rel="stylesheet" type="text/css" href="/styles/buttons.css">
+  <link rel="stylesheet" type="text/css" href="/styles/forms.css">
+  <link rel="stylesheet" type="text/css" href="/styles/structure.css">
+  <link rel="stylesheet" type="text/css" href="/styles/tables.css">
 </head>
 <body>
   <nav id="menu">
-    <a href='/'>Dashboard</a> <a href='/transactions'>All Transactions</a> <a href='/tags'>Categories</a> <a href='/vendors'>Vendors</a>
-    <a href='/budgets/1/edit'>Change Budget</a> <a href='/transactions/new'>Add Transaction</a>  
+    <a href='/'>Dashboard</a> <a href='/transaction/delete'>Clear the Board and Set a new Budget</a> <a href='/transactions/new'>Add Transaction</a>
   </nav>
 
   <%= yield %>

@@ -56,6 +56,12 @@ class Transaction
     SqlRunner.run(sql, values)
   end
 
+  def self.delete_all
+    sql ="DELETE From transactions"
+    values =[]
+    SqlRunner.run(sql, values)
+  end
+
   def self.last_five
     sql = "select * from transactions order by date DESC limit 5;"
     values = []

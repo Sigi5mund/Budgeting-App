@@ -1,5 +1,5 @@
 <div>
-  <h1> ::BudgetBored:: Short Term Budget, Long Term Goals </h1>
+  <h1> ::BudgetBored:: One Budget, Many Goals </h1>
 </div>
 
 <div >
@@ -21,8 +21,8 @@
 <div>
   <table>
     <tr>
-      <th>Goal Budget</th>
-      <th>Spend so Far</th>
+      <th><a href='/budgets/1/edit'>Budget</a></th>
+      <th><a href='/transactions'>Spent so far</a></th>
       <th>Budget Remaining</th>
     </tr>
    <tr>
@@ -40,7 +40,7 @@
   <div>
     <table>
       <tr>
-        <th> Name</th>
+        <th><a href='/transactions'>Transactions</a></th>
         <th> Price </th>
         <th> Vendor </th>
         <th> Tag </th>
@@ -62,8 +62,8 @@
   <div>
      <table>
       <tr>
-        <th> Category</th>
-        <th> Spending </th>
+        <th> <a href='/tags'>Categories</a></th>
+        <th> Spent so far </th>
       </tr>
     <% @tags.each do |tag| %>
      <tr>
@@ -77,8 +77,8 @@
 <div>
   <table>
     <tr>
-      <th> Vendor</th>
-      <th> Spending</th>
+      <th> <a href='/vendors'>Vendors</a></th>
+      <th> Spent so far</th>
     </tr>
   <% @vendors.each do |vendor| %>
    <tr>

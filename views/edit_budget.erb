@@ -1,4 +1,4 @@
-<h2>Editing Budget <%= @budget.id %></h2>
+<h2>Editing Budget</h2>
 <form method="POST" action="/budgets/<%= @budget.id %>">
   <input type="hidden" name="_method" value="put">
   <div class="form">
@@ -17,3 +17,4 @@
 
 </div>
 </form>
+<a href='/transactions'>Back to Transactions</a>

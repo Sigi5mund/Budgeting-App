@@ -1,0 +1,19 @@
+<h2>Editing Budget <%= @budget.id %></h2>
+<form method="POST" action="/budgets/<%= @budget.id %>">
+  <input type="hidden" name="_method" value="put">
+  <div class="form">
+
+
+    <div class="form">
+      <label for="name">Budget in Pence:</label>
+      <input type="number" name="balance" id="balance"
+      value="<%= @budget.balance %>"/>
+    </div>
+
+
+<div class="form">
+  <input type="submit" value="Save Budget"/>
+</div>
+
+</div>
+</form>

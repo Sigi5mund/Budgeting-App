@@ -1,13 +1,14 @@
 require('sinatra')
 require('sinatra/contrib/all')
+require('pry')
+require_relative('helpers/strings.rb')
 require_relative('models/tag.rb')
 require_relative('models/transaction.rb')
 require_relative('models/vendor.rb')
-
-@balance = 1000
+require_relative('models/budget.rb')
 
 get '/' do
-  @balance = 1000
+  @balance = Budget.all.first.balance.to_i
   @transactions = Transaction.all
   @transactions_last_five = Transaction.last_five
   @tags = Tag.all
@@ -30,6 +31,11 @@ get '/vendors' do
   erb(:index_vendor)
 end
 
+get '/budgets' do
+  @balance = Budget.all
+  erb(:index_budget)
+end
+
 get '/transactions/new' do
   @tags = Tag.all
   @vendors = Vendor.all
@@ -44,6 +50,11 @@ end
 get '/vendors/new' do
   @vendors =Vendor.all
   erb(:new_vendor)
+end
+
+get '/budgets/new' do
+  @budgets =budget.all
+  erb(:new_budget)
 end
 
 post '/transactions' do
@@ -61,6 +72,11 @@ post '/vendors' do
   redirect to '/vendors'
 end
 
+post '/budgets' do
+  Budget.new(params).save
+  redirect to '/budgets'
+end
+
 get '/transactions/:id' do
   @transaction = Transaction.find(params['id'])
   erb(:show)
@@ -74,6 +90,11 @@ end
 get '/vendors/:id' do
   @vendor = Vendor.find(params['id'])
   erb(:show_vendor)
+end
+
+get '/budgets/:id' do
+  @budget = Budget.find(params['id'])
+  erb(:show_budget)
 end
 
 get '/transactions/:id/edit' do
@@ -95,6 +116,12 @@ get '/vendors/:id/edit' do
   erb(:edit_vendor)
 end
 
+get '/budgets/:id/edit' do
+  @budgets = Budget.all
+  @budget = Budget.find(params['id'])
+  erb(:edit_budget)
+end
+
 put '/transactions/:id' do
   transaction = Transaction.new(params)
   transaction.update
@@ -113,6 +140,12 @@ put '/vendors/:id' do
   redirect to "/vendors/#{params['id']}"
 end
 
+put '/budgets/:id' do
+  budget = Budget.new(params)
+  budget.update
+  redirect to "/"
+end
+
 post '/transactions/:id/delete' do
   transaction = Transaction.find(params['id'])
   transaction.delete
@@ -129,4 +162,10 @@ post '/vendors/:id/delete' do
   vendor = Vendor.find(params['id'])
   vendor.delete
   redirect to '/vendors'
+end
+
+post '/budgets/:id/delete' do
+  budget = Budget.find(params['id'])
+  budget.delete
+  redirect to '/budgets'
 end

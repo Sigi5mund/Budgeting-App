@@ -2,14 +2,18 @@
 
 <a href='/vendors/new'>Add a new vendor</a>
 
-<div id="vendor table">
+<div id="transaction_table">
   <table>
     <tr>
       <th> Name</th>
+      <th> Spending</th>
+      <th></th>
+      <th></th>
     </tr>
   <% @vendors.each do |vendor| %>
    <tr>
-     <td><%= vendor.name %></td>
+     <td><%= StringHelper.titleize(vendor.name) %></td>
+     <td> £<%= sprintf('%.2f', (vendor.total.to_f/100)) %></td>
      <td> <a href="/vendors/<%= vendor.id %>/edit">Edit</a> </td>
      <td> <form action="/vendors/<%= vendor.id %>/delete" method="POST"><input type="submit" value="Delete"></form> </td>
     <% end %>
@@ -17,3 +21,7 @@
     </tr>
 
  </table>
+
+ <div>
+   <h3> When deleting a vendor, please remember this will delete all transactions with this vendor. Don't delete unless you have sorted your transactions already! </h3>
+ </div>

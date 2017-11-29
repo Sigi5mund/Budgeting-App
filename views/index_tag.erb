@@ -1,17 +1,19 @@
-<h2>All Tags</h2>
+<h2>All Categories</h2>
 
 <a href='/tags/new'>Add a new category</a>
 
-<div id="transaction table">
+<div id="transaction_table">
    <table>
     <tr>
       <th> Category</th>
       <th> Spending </th>
+      <th></th>
+      <th></th>
     </tr>
   <% @tags.each do |tag| %>
    <tr>
-     <td><%= tag.category %></td>
-     <td> <%= tag.total %></td>
+     <td><%= StringHelper.titleize(tag.category) %></td>
+     <td> £<%= sprintf('%.2f', (tag.total.to_f/100))%></td>
 
      <td> <a href="/tags/<%= tag.id %>/edit">Edit</a> </td>
      <td> <form action="/tags/<%= tag.id %>/delete" method="POST"><input type="submit" value="Delete"></form> </td>
@@ -20,3 +22,7 @@
     </tr>
 
  </table>
+
+<div>
+  <h3> When deleting a tag, please remember this will delete all transactions with this tag. Don't delete unless you have sorted your transactions already! </h3>
+</div>

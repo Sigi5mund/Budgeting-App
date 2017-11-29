@@ -1,0 +1,17 @@
+<h2>Budget</h2>
+
+<div id="transaction_table">
+  <table>
+    <tr>
+      <th> Name</th>
+      <th></th>
+    </tr>
+  <% @balance.each do |budget| %>
+   <tr>
+     <td> £<%= sprintf('%.2f', (budget.balance.to_f/100)) %></td>
+     <td> <a href="/budgets/<%= budget.id %>/edit">Edit</a> </td>
+    <% end %>
+
+    </tr>
+
+ </table>

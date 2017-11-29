@@ -35,6 +35,13 @@ attr_reader :id, :name
     SqlRunner.run(sql, values)
   end
 
+  def total
+    sql = "select SUM(price) from transactions where transactions.vendor_id = $1"
+    values =[@id]
+    result = SqlRunner.run(sql, values)
+    return result.first['sum']
+  end
+
   def self.find(id)
     sql = "SELECT * FROM vendors
     WHERE id = $1"
@@ -44,7 +51,7 @@ attr_reader :id, :name
   end
 
   def self.all()
-    sql = "SELECT * FROM vendors"
+    sql = "SELECT * FROM vendors order by name ASC"
     values = []
     vendor_data = SqlRunner.run(sql, values)
     return map_items(vendor_data)

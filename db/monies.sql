@@ -1,6 +1,12 @@
+DROP TABLE IF EXISTS budgets;
 DROP TABLE IF EXISTS transactions;
 DROP TABLE IF EXISTS tags;
 DROP TABLE IF EXISTS vendors;
+
+CREATE TABLE budgets(
+id SERIAL8 primary key,
+balance NUMERIC
+);
 
 CREATE TABLE vendors(
 id SERIAL8 primary key,

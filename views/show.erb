@@ -1,7 +1,7 @@
 <h2><%=  %></h2>
 
 <p>Name: <%= @transaction.name %></p>
-<p>Price: <%= @transaction.price %></p>
+<p>Price: £<%= sprintf('%.2f', (@transaction.price.to_f/100)) %></p>
 <p>Vendor: <%= @transaction.vendor.name %></p>
 <p>Date: <%= @transaction.date %></p>
 <p>Category: <%= @transaction.tag.category.capitalize %></p>

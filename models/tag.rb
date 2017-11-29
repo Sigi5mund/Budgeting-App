@@ -1,6 +1,5 @@
 require_relative('../db/sql_runner')
 
-
 class Tag
 
 
@@ -8,7 +7,7 @@ attr_accessor :id, :category
 
   def initialize(options)
     @id = options['id'].to_i if options['id']
-    @category = options['category'].capitalize
+    @category = options['category']
   end
 
   def save
@@ -51,7 +50,7 @@ attr_accessor :id, :category
   end
 
   def self.all()
-    sql = "SELECT * FROM tags"
+    sql = "SELECT * FROM tags order by category ASC"
     values = []
     tag_data = SqlRunner.run(sql, values)
     return map_items(tag_data)

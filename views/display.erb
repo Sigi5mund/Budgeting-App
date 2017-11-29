@@ -1,49 +1,53 @@
 <div>
 
-  <h1> ::TheMoneyApp:: Helping you budget, like a Pro! </h1>
+  <h1> ::BudgetBored:: Short budgets, long Goals </h1>
 </div>
 
+<div >
 <% @total = 0 %>
+
 <% @transactions.each do |transaction| %>
   <% @total += transaction.price.to_i %>
 <% end %>
 
 <% if @total > @balance%>
-  <h2> You have gone over budget! </h2>
+  <% @fail_total = @total - @balance%>
+  <h2 class="warning-box"> You have gone over your intended budget by £<%= sprintf('%.2f', (@fail_total.to_f/100)) %> </h2>
 <% else %>
-  <h4> Your total spend is upto: £<%= @total %>. Whilst your budget for this month is £<%= @balance %>. That leaves £<%= @balance - @total %>. </h4>
+  <% @grand_total =  @balance - @total%>
+   <h4>  Your Goal is to be under £<%= sprintf('%.2f', (@balance.to_f/100)) %><a href='/budgets/1/edit'>[Update]</a>. Your total spend so far is: £<%= sprintf('%.2f', (@total.to_f/100)) %>. That leaves £<%= sprintf('%.2f', (@grand_total.to_f/100)) %> to play with. </h4>
 <%end %>
+</div>
 
-
+<% @grand_total = @total - @balance %>
 <div>
-  <h5> Summary of latest transactions </h5>
-
-  <div id="transaction table">
-    <table style="width:100%">
+  <h5> Summary of the Last Five Transactions </h5>
+</div>
+  <div>
+    <table>
       <tr>
         <th> Name</th>
         <th> Price </th>
         <th> Vendor </th>
         <th> Tag </th>
         <th> Date </th>
-        <th> Comments </th>
+
       </tr>
     <% @transactions_last_five.each do |transaction| %>
      <tr>
        <td><%= transaction.name %></td>
-       <td>£<%= transaction.price %></td>
-       <td><%= transaction.vendor.name %></td>
-       <td><%= transaction.tag.category %></td>
+       <td>£<%= sprintf('%.2f', (transaction.price.to_f/100)) %></td>
+       <td><%= StringHelper.titleize(transaction.vendor.name) %></td>
+       <td><%= StringHelper.titleize(transaction.tag.category) %></td>
        <td><%= transaction.date %></td>
-       <td><%= transaction.comment %></td>
       <% end %>
       </tr>
    </table>
 </div>
 
 <h5> Here you can see your spending by category </h5>
-<div>
-  <div id="tag table">
+
+  <div>
      <table>
       <tr>
         <th> Category</th>
@@ -51,9 +55,25 @@
       </tr>
     <% @tags.each do |tag| %>
      <tr>
-       <td><%= tag.category %></td>
-       <td> <%= tag.total %></td>
+       <td><%= StringHelper.titleize(tag.category) %></td>
+       <td> £<%= sprintf('%.2f', (tag.total.to_f/100)) %></td>
        <%end%>
     </tr>
   </table>
+</div>
+
+<h5> Here you can see your spending by vendor </h5>
+<div>
+  <table>
+    <tr>
+      <th> Name</th>
+      <th> Spending</th>
+    </tr>
+  <% @vendors.each do |vendor| %>
+   <tr>
+     <td><%= StringHelper.titleize(vendor.name) %></td>
+     <td> £<%= sprintf('%.2f', (vendor.total.to_f/100)) %></td>
+    <% end %>
+    </tr>
+ </table>
 </div>

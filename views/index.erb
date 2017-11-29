@@ -1,7 +1,7 @@
 <h2>All Transactions</h2>
 
 <a href='/transactions/new'>Add Transaction</a>
-<div id="transaction table">
+<div id="transaction_table">
   <table style="width:100%">
     <tr>
       <th> Name</th>
@@ -10,13 +10,15 @@
       <th> Tag </th>
       <th> Date </th>
       <th> Comments </th>
+      <th></th>
+      <th></th>
     </tr>
   <% @transactions.each do |transaction| %>
    <tr>
      <td><%= transaction.name %></td>
-     <td>£<%= transaction.price %></td>
-     <td><%= transaction.vendor.name %></td>
-     <td><%= transaction.tag.category %></td>
+     <td>£<%= sprintf('%.2f', (transaction.price.to_f/100)) %></td>
+     <td><%= StringHelper.titleize(transaction.vendor.name) %></td>
+     <td><%= StringHelper.titleize(transaction.tag.category) %></td>
      <td><%= transaction.date %></td>
      <td><%= transaction.comment %></td>
      <td> <a href="/transactions/<%= transaction.id %>/edit">Edit</a> </td>
@@ -24,7 +26,6 @@
     <% end %>
     </tr>
  </table>
-
 
 </div>
 

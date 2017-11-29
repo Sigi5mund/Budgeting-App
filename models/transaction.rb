@@ -65,7 +65,7 @@ class Transaction
 
 
   def self.all
-    sql = "SELECT * FROM transactions"
+    sql = "SELECT * FROM transactions order by date DESC"
     values = []
     transaction_data = SqlRunner.run(sql, values)
     return map_items(transaction_data)

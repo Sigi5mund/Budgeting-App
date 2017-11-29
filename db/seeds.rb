@@ -1,6 +1,7 @@
 require_relative('../models/transaction.rb')
 require_relative('../models/tag.rb')
 require_relative('../models/vendor.rb')
+require_relative('../models/budget.rb')
 require('pry-byebug')
 
 tag1 = Tag.new({'category' => 'groceries'})
@@ -34,7 +35,7 @@ vendor6.save
 transaction1 = Transaction.new({
   'name' => 'Weekly shop',
   'tag_id' => tag1.id,
-  'price' => 65,
+  'price' => 6515,
   'vendor_id' => vendor1.id,
   'date' => '2017/11/20',
   'comment' => 'Forgot washing powder'})
@@ -42,7 +43,7 @@ transaction1 = Transaction.new({
 transaction2 = Transaction.new({
   'name' => 'Work shirt',
   'tag_id' => tag2.id,
-  'price' => 15,
+  'price' => 1599,
   'vendor_id' => vendor2.id,
   'date' => '2017/11/20',
   'comment' => 'Claim on expenses'})
@@ -50,7 +51,7 @@ transaction2 = Transaction.new({
 transaction3 = Transaction.new({
   'name' => 'Washing Powder',
   'tag_id' => tag3.id,
-  'price' => 6,
+  'price' => 599,
   'vendor_id' => vendor3.id,
   'date' => '2017/11/19',
   'comment' => ''})
@@ -58,7 +59,7 @@ transaction3 = Transaction.new({
 transaction4 = Transaction.new({
   'name' => 'Meal',
   'tag_id' => tag4.id,
-  'price' => 43,
+  'price' => 4324,
   'vendor_id' => vendor4.id,
   'date' => '2017/11/09',
   'comment' => 'Used the voucher for discount!'})
@@ -66,7 +67,7 @@ transaction4 = Transaction.new({
 transaction5 = Transaction.new({
   'name' => 'DD gas and electric',
   'tag_id' => tag5.id,
-  'price' => 105,
+  'price' => 10578,
   'vendor_id' => vendor5.id,
   'date' => '2017/11/24',
   'comment' => 'Higher than last Autumn!'})
@@ -74,7 +75,7 @@ transaction5 = Transaction.new({
 transaction6 = Transaction.new({
   'name' => 'Council Tax',
   'tag_id' => tag6.id,
-  'price' => 98,
+  'price' => 9819,
   'vendor_id' => vendor6.id,
   'date' => '2017/11/25',
   'comment' => ''})
@@ -86,6 +87,10 @@ transaction4.save
 transaction5.save
 transaction6.save
 
+budget = Budget.new({
+'balance' => 100000
+})
+budget.save
 
 binding.pry
 nil

@@ -78,8 +78,12 @@ post '/vendors' do
 end
 
 post '/budgets' do
-  Budget.new(params).save
-  redirect to '/budgets'
+   budget = Budget.new(params)
+   balance = budget.balance.to_f
+   balance *=100
+   budget.balance = balance
+   budget.save
+   redirect to '/budgets'
 end
 
 get '/transactions/:id' do
@@ -149,9 +153,12 @@ put '/vendors/:id' do
 end
 
 put '/budgets/:id' do
-  budget = Budget.new(params)
-  budget.update
-  redirect to "/"
+   budget = Budget.new(params)
+   balance = budget.balance.to_f
+   balance *=100
+   budget.balance = balance
+   budget.update
+   redirect to "/"
 end
 
 post '/transactions/:id/delete' do

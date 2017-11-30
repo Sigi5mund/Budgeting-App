@@ -4,17 +4,17 @@
 
     <div class="form">
       <label for="name">Description:</label>
-      <input type="text" name="name" id="name"/>
+      <input type="text" name="name" id="name" required/>
     </div>
 
     <div class="form">
       <label for="price">Price in Pence:</label>
-      <input type="number" name="price" id="price"/>
+      <input type="number" name="price" id="price" required/>
     </div>
 
     <div class="form">
       <label for="vendor-select">Select Vendor:</label>
-      <select name="vendor_id" id="vendor_select">
+      <select name="vendor_id" id="vendor_select" required>
         <option value="" disabled selected>Select Vendor</option></option>
         <% @vendors.each do |vendor| %>
         <option value=<%= vendor.id %>><%= vendor.name.capitalize %></option>
@@ -25,7 +25,7 @@
 
     <div class="form">
       <label for="tag-select">Select Tag:</label>
-      <select name="tag_id" id="tag_select">
+      <select name="tag_id" id="tag_select" required>
         <option value="" disabled selected>Select Category</option></option>
         <% @tags.each do |tag| %>
         <option value=<%= tag.id %>><%= tag.category.capitalize %></option>
@@ -36,7 +36,7 @@
 
     <div class="form">
       <label for="date">Date:</label>
-      <input type="date" name="date" id="date"/>
+      <input type="date" name="date" id="date" required/>
     </div>
 
     <div class="form">

@@ -1,9 +1,9 @@
-<h2>New Transaction</h2>
+<h1> ::BudgetBoard:: Add a New Transaction</h1>
 <form method="POST" action="/transactions">
   <div class="form">
 
     <div class="form">
-      <label for="name">Name:</label>
+      <label for="name">Description:</label>
       <input type="text" name="name" id="name"/>
     </div>
 
@@ -20,7 +20,19 @@
         <option value=<%= vendor.id %>><%= vendor.name.capitalize %></option>
         <% end %>
       </select>
+      <a href='/vendors/new'>Add<a>
     </div>
+
+    <div class="form">
+      <label for="tag-select">Select Tag:</label>
+      <select name="tag_id" id="tag_select">
+        <option value="" disabled selected>Select Category</option></option>
+        <% @tags.each do |tag| %>
+        <option value=<%= tag.id %>><%= tag.category.capitalize %></option>
+        <% end %>
+      </select>
+      <a href='/tags/new'>Add<a>
+      </div>
 
     <div class="form">
       <label for="date">Date:</label>
@@ -33,18 +45,9 @@
     </div>
 
     <div class="form">
-      <label for="tag-select">Select Tag:</label>
-      <select name="tag_id" id="tag_select">
-        <option value="" disabled selected>Select Category</option></option>
-        <% @tags.each do |tag| %>
-        <option value=<%= tag.id %>><%= tag.category.capitalize %></option>
-        <% end %>
-      </select>
-    </div>
-
-    <div class="form">
       <input type="submit" value="Upload Transaction"/>
     </div>
 
   </div>
 </form>
+<a href='/transactions'>Back to Transactions</a>

@@ -1,0 +1,15 @@
+form {
+  margin: 10px 0;
+}
+
+.form-wrapper .form input[type="submit" i] {
+  margin-left: 180px;
+}
+
+.form-wrapper form label {
+  text-align: right;
+  display: inline-block;
+  vertical-align: middle;
+  width: 160px;
+  margin: 0 1em 0 0;
+}

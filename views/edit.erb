@@ -1,4 +1,4 @@
-<h2>Editing Transaction <%= @transaction.id %></h2>
+<h1> ::BudgetBoard:: Editing Transaction</h1>
 <form method="POST" action="/transactions/<%= @transaction.id %>">
   <input type="hidden" name="_method" value="put">
   <div class="form">
@@ -23,6 +23,7 @@
           <option value=<%= vendor.id %> <%= "selected" if vendor.id == @transaction.vendor_id %>><%= vendor.name.capitalize %></option>
         <% end %>
       </select>
+      <a href='/vendors/new'>Add<a>
     </div>
 
     <div class="form">
@@ -42,14 +43,12 @@
           <option value=<%= tag.id %> <%= "selected" if tag.id == @transaction.tag_id %>><%= tag.category.capitalize %></option>
         <% end %>
       </select>
+      <a href='/tags/new'>Add<a>
     </div>
-
-
 <div class="form">
   <input type="submit" value="Upload Transaction"/>
-
-
 </div>
 
 </div>
 </form>
+<a href='/transactions'>Back to Transactions</a>

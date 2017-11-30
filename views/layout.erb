@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>BudgetBored</title>
+  <title>BudgetBoard</title>
   <link href="https://fonts.googleapis.com/css?family=Amarante|Rye" rel="stylesheet">
 
   <link rel="stylesheet" type="text/css" href="/styles/buttons.css">
@@ -9,10 +9,11 @@
   <link rel="stylesheet" type="text/css" href="/styles/structure.css">
   <link rel="stylesheet" type="text/css" href="/styles/tables.css">
 </head>
-<body>
   <nav id="menu">
-    <a href='/'>Dashboard</a> <a href='/transaction/delete'>Clear the Board and Set a new Budget</a> <a href='/transactions/new'>Add Transaction</a>
+    <a href='/'>Dashboard</a> <a href='/transactions'>All Transactions</a> <a href='/transactions/new'>Add New Transaction</a>
   </nav>
+
+  <body>
 
   <%= yield %>
 

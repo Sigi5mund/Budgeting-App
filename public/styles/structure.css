@@ -1,0 +1,12 @@
+body {font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+width: 100%;
+
+
+}
+
+#dashboard {
+display: flex;
+float: left;
+width: 100%;
+height: 500px;
+}

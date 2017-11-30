@@ -171,7 +171,6 @@ post '/budgets/:id/delete' do
 end
 
 get '/transaction/delete' do
-  @transactions = Transaction.all
   erb(:transactions_clear)
 end
 

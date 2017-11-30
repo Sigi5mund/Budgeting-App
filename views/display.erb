@@ -1,8 +1,8 @@
-<div>
-  <h1> ::BudgetBored:: One Budget, Many Goals </h1>
-</div>
 
-<div >
+  <h1> ::BudgetBoard:: One Budget, Many Goals </h1>
+
+<a href='/transaction/delete'>Clear the Board and Set a new Budget</a>
+
 <% @total = 0 %>
 
 <% @transactions.each do |transaction| %>
@@ -13,17 +13,17 @@
   <% @fail_total = @total - @balance %>
   <h2 class="warning-box">  Your goal budget was £<%= sprintf('%.2f', (@balance.to_f/100)) %> but you have gone over by £<%= sprintf('%.2f', (@fail_total.to_f/100)) %>.</h2>
 <%end %>
-</div>
+
 
 <% @grand_total =  @balance - @total%>
 
-
+<div id="dashboard" style="float: left;">
 <div>
   <table>
     <tr>
       <th><a href='/budgets/1/edit'>Budget</a></th>
       <th><a href='/transactions'>Spent so far</a></th>
-      <th>Budget Remaining</th>
+      <th><a href='/transactions/new'>Budget Remaining</a></th>
     </tr>
    <tr>
      <td>£<%= sprintf('%.2f', (@balance.to_f/100)) %></td>
@@ -31,20 +31,17 @@
      <td>£<%= sprintf('%.2f', (@grand_total.to_f/100)) %></td>
     </tr>
  </table>
-
-
 </div>
-<div>
+
+<div style="float: right;">
   <h5> Summary of the Last Five Transactions </h5>
-</div>
-  <div>
     <table>
       <tr>
         <th><a href='/transactions'>Transactions</a></th>
-        <th> Price </th>
-        <th> Vendor </th>
-        <th> Tag </th>
-        <th> Date </th>
+        <th><a href='/transactions'>Price</a></th>
+        <th><a href='/vendors'>Vendors</a></th>
+        <th><a href='/tags'>Categories</a> </th>
+        <th><a href='/transactions'>Date</a></th>
       </tr>
     <% @transactions_last_five.each do |transaction| %>
      <tr>
@@ -63,7 +60,7 @@
      <table>
       <tr>
         <th> <a href='/tags'>Categories</a></th>
-        <th> Spent so far </th>
+        <th> <a href='/transactions'>Spent so far</a></th>
       </tr>
     <% @tags.each do |tag| %>
      <tr>
@@ -78,7 +75,7 @@
   <table>
     <tr>
       <th> <a href='/vendors'>Vendors</a></th>
-      <th> Spent so far</th>
+      <th> <a href='/transactions'>Spent so far</a></th>
     </tr>
   <% @vendors.each do |vendor| %>
    <tr>
@@ -87,4 +84,5 @@
     <% end %>
     </tr>
  </table>
+</div>
 </div>

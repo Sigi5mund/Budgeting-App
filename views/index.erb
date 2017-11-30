@@ -1,13 +1,12 @@
-<h2>All Transactions</h2>
+<h1> ::BudgetBoard:: All Transactions</h1>
 
- <a href='/transactions/new'>Add New Transaction</a> <a href='/tags'>Edit Categories</a> <a href='/vendors'>Edit Vendors</a>
 <div id="transaction_table">
-  <table style="width:100%">
+  <table style="width:80%">
     <tr>
-      <th> Name</th>
+      <th> <a href='/transactions/new'>Add New Transaction</a> </th>
       <th> Price </th>
-      <th> Vendor </th>
-      <th> Tag </th>
+      <th> <a href='/vendors'>Check Vendors</a></th>
+      <th> <a href='/tags'>Check Categories</a></th>
       <th> Date </th>
       <th> Comments </th>
       <th></th>
@@ -26,8 +25,4 @@
     <% end %>
     </tr>
  </table>
-
-</div>
-
-
 </div>

@@ -13,14 +13,14 @@
     </div>
     <br>
     <div class="form">
-      <label for="vendor-select">Vendor:</label>
-      <select name="vendor_id" id="vendor_select" required>
-        <option value="" disabled selected>Select Vendor</option></option>
-        <% @vendors.each do |vendor| %>
-        <option value=<%= vendor.id %>><%= vendor.name.capitalize %></option>
+      <label for="tag-select">Category:</label>
+      <select name="tag_id" id="tag_select" required>
+        <option value="" disabled selected>Select Category</option></option>
+        <% @tags.each do |tag| %>
+        <option value=<%= tag.id %>><%= tag.category.capitalize %></option>
         <% end %>
       </select>
-      <a href='/vendors/new'>Add</a>
+      <a href='/tags/new'>Add</a>
     </div>
     <br>
 
@@ -30,14 +30,14 @@
     </div>
     <br>
     <div class="form">
-      <label for="tag-select">Category:</label>
-      <select name="tag_id" id="tag_select" required>
-        <option value="" disabled selected>Select Category</option></option>
-        <% @tags.each do |tag| %>
-        <option value=<%= tag.id %>><%= tag.category.capitalize %></option>
+      <label for="vendor-select">Vendor:</label>
+      <select name="vendor_id" id="vendor_select" required>
+        <option value="" disabled selected>Select Vendor</option></option>
+        <% @vendors.each do |vendor| %>
+        <option value=<%= vendor.id %>><%= vendor.name.capitalize %></option>
         <% end %>
       </select>
-      <a href='/tags/new'>Add</a>
+      <a href='/vendors/new'>Add</a>
     </div>
     <br>
     <div class="form">

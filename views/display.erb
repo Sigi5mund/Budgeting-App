@@ -1,8 +1,6 @@
 
   <h1> ::BudgetBoard:: One Budget, Many Goals </h1>
 
-
-
 <% @total = 0 %>
 
 <% @transactions.each do |transaction| %>
@@ -33,9 +31,9 @@
     <table style="width:100% padding-top: 10px">
       <tr>
         <th><a href='/transactions'>Summary</a></th>
-        <th>Price</th>
-        <th><a href='/vendors'>Vendor</a></th>
+        <th>Spent</th>
         <th><a href='/tags'>Category</a> </th>
+        <th><a href='/vendors'>Vendor</a></th>
         <th>Date</th>
         <th>Comment </th>
       </tr>
@@ -43,8 +41,8 @@
      <tr>
        <td><%= transaction.name %></td>
        <td>£<%= sprintf('%.2f', (transaction.price.to_f/100)) %></td>
-       <td><%= StringHelper.titleize(transaction.vendor.name) %></td>
        <td><%= StringHelper.titleize(transaction.tag.category) %></td>
+       <td><%= StringHelper.titleize(transaction.vendor.name) %></td>
        <td><%= transaction.date %></td>
        <td><%= transaction.comment %></td>
       <% end %>

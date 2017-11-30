@@ -2,9 +2,14 @@
 
 <p>Vendor Name: <%= @vendor.name %></p>
 
-    <br>
+<br>
+
 <a href="/vendors/<%= @vendor.id %>/edit">Edit Name</a>
-    <br>
+
+<br>
+
 <form action="/vendors/<%= @vendor.id %>/delete" method="POST"><input class="input-button" type="submit" value="Delete"></form>
-    <br>
-<a href='/transactions/'>Back to Transactions</a>
+
+<br>
+
+<a href='/transactions'>Back to Transactions</a>

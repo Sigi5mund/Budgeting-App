@@ -1,11 +1,17 @@
 <h1> ::BudgetBoard:: </h1>
+
 <p>Description: <%= @transaction.name %></p>
 <p>Price: £<%= sprintf('%.2f', (@transaction.price.to_f/100)) %></p>
-<p>Vendor: <%= @transaction.vendor.name %></p>
-<p>Date: <%= @transaction.date %></p>
 <p>Category: <%= @transaction.tag.category.capitalize %></p>
+<p>Date: <%= @transaction.date %></p>
+<p>Vendor: <%= @transaction.vendor.name %></p>
 <p>Comments: <%= @transaction.comment %></p>
-    <br>
+
+<br>
+
 <a href="/transactions/<%= @transaction.id %>/edit">Edit Transaction</a>
-    <br>
-<form action="/transactions/<%= @transaction.id %>/delete" method="POST"><input class="input-button"  type="submit" value="Delete"></form>
+
+<br>
+<br>
+
+<a href="/transactions">Transactions</a>

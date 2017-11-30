@@ -6,8 +6,8 @@
     <tr>
       <th><span class="scrolling"><a href='/transactions/new'>Add Transaction</a></span></span> </th>
       <th><span class="scrolling">Price</span> </th>
-      <th><span class="scrolling"><a href='/vendors'>Vendors</a></span></span></th>
       <th><span class="scrolling"><a href='/tags'>Categories</a></span></th>
+      <th><span class="scrolling"><a href='/vendors'>Vendors</a></span></span></th>
       <th><span class="scrolling">Date</span> </th>
       <th><span class="scrolling">Comments</th>
       <th><span class="scrolling"></span></th>
@@ -18,8 +18,8 @@
    <tr>
      <td><%= transaction.name %></td>
      <td>£<%= sprintf('%.2f', (transaction.price.to_f/100)) %></td>
-     <td><%= StringHelper.titleize(transaction.vendor.name) %></td>
      <td><%= StringHelper.titleize(transaction.tag.category) %></td>
+     <td><%= StringHelper.titleize(transaction.vendor.name) %></td>
      <td><%= transaction.date %></td>
      <td><%= transaction.comment %></td>
      <td> <a href="/transactions/<%= transaction.id %>/edit">Edit</a> </td>

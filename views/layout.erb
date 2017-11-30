@@ -8,14 +8,16 @@
   <link rel="stylesheet" type="text/css" href="/styles/forms.css">
   <link rel="stylesheet" type="text/css" href="/styles/structure.css">
   <link rel="stylesheet" type="text/css" href="/styles/tables.css">
+  <div class="background">
+    <img class="image" src="https://upload.wikimedia.org/wikipedia/commons/f/f6/Whiteboard_with_markers.jpg" />
+  </div>
 </head>
   <nav id="menu">
-    <a href='/'>Dashboard</a> <a href='/transactions'>All Transactions</a> <a href='/transactions/new'>Add New Transaction</a>
+    <a href='/'>Dashboard</a> <a href='/transactions'>All Transactions</a> <a id="clear" href='/transaction/delete'>Clear the Board</a> <a href='/transactions/new'>Add New Transaction</a>
   </nav>
 
   <body>
+    <%= yield %>
+  </body>
 
-  <%= yield %>
-
-</body>
 </html>

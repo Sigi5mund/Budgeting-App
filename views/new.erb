@@ -6,48 +6,50 @@
       <label for="name">Description:</label>
       <input type="text" name="name" id="name" required/>
     </div>
-
+    <br>
     <div class="form">
-      <label for="price">Price in Pence:</label>
+      <label for="price">Price: £</label>
       <input type="number" name="price" id="price" required/>
     </div>
-
+    <br>
     <div class="form">
-      <label for="vendor-select">Select Vendor:</label>
+      <label for="vendor-select">Vendor:</label>
       <select name="vendor_id" id="vendor_select" required>
         <option value="" disabled selected>Select Vendor</option></option>
         <% @vendors.each do |vendor| %>
         <option value=<%= vendor.id %>><%= vendor.name.capitalize %></option>
         <% end %>
       </select>
-      <a href='/vendors/new'>Add<a>
+      <a href='/vendors/new'>Add</a>
     </div>
+    <br>
 
     <div class="form">
-      <label for="tag-select">Select Tag:</label>
+      <label for="date">Date:</label>
+      <input type="date" name="date" id="date" required/>
+    </div>
+    <br>
+    <div class="form">
+      <label for="tag-select">Category:</label>
       <select name="tag_id" id="tag_select" required>
         <option value="" disabled selected>Select Category</option></option>
         <% @tags.each do |tag| %>
         <option value=<%= tag.id %>><%= tag.category.capitalize %></option>
         <% end %>
       </select>
-      <a href='/tags/new'>Add<a>
-      </div>
-
-    <div class="form">
-      <label for="date">Date:</label>
-      <input type="date" name="date" id="date" required/>
+      <a href='/tags/new'>Add</a>
     </div>
-
+    <br>
     <div class="form">
       <label for="comment">Comments:</label>
       <input type="text" name="comment" id="comment"/>
     </div>
-
+    <br>
     <div class="form">
-      <input type="submit" value="Upload Transaction"/>
+      <input class="input-button" type="submit"  value="Upload Transaction"/>
     </div>
 
   </div>
 </form>
-<a href='/transactions'>Back to Transactions</a>
+    <br>
+<a href='/transactions'>Transactions</a>

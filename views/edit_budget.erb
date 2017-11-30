@@ -1,20 +1,24 @@
-<h2>Editing Budget</h2>
+<h1>::BudgetBoard:: Editing Budget</h1>
 <form method="POST" action="/budgets/<%= @budget.id %>">
   <input type="hidden" name="_method" value="put">
   <div class="form">
 
 
     <div class="form">
-      <label for="name">Budget in Pence:</label>
+      <label for="name">Budget:£</label>
       <input type="number" name="balance" id="balance"
-      value="<%= @budget.balance %>"/>
+      value="<%= sprintf('%.2f', (@budget.balance.to_f/100)) %>"/>
     </div>
-
+<br>
 
 <div class="form">
-  <input type="submit" value="Save Budget"/>
+  <input class="input-button" type="submit" value="Save Budget"/>
 </div>
-
+<br>
 </div>
 </form>
-<a href='/'>Back to Dashboard</a> <a href='/transactions'>Onward to Transactions</a>
+
+<a href='/'>Back to Dashboard</a>
+<br>
+<br>
+<a href='/transactions'>Onward to Transactions</a>

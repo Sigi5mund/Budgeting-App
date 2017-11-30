@@ -1,20 +1,46 @@
 
-.table-button {
 
+.input-button{
+    font-size: 15px;
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    color: purple;
+    border: 1px solid #64e56a;
+    background-color: #64e56a;
+    border-style: solid;
+    border-width:thick;
+    margin      : 0;
+    padding     : 0;
+    line-height: 22px;
+    border-radius: 15px;
+    height: 24;
+    box-sizing: border-box;
+  }
+
+.input-button:hover{
+
+  background-color: #3d8e40;
+}
+
+
+
+a{
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  text-decoration: none;
+  color: purple;
+  border: 1px solid #64e56a;
+  background-color: #64e56a;
+  border-style: solid;
+  border-width: thick;
+  margin :0;
+  padding :0;
+  line-height: 22px;
+  border-radius: 15px;
+  height: 24;
 
 }
 
-button{}
-
-.warning-box {
-    background-color: firebrick;
-    width: 30%;
-
-
-}
-
-.btn {
-
-
+a:hover{
+  background-color: #3d8e40;
 
 }

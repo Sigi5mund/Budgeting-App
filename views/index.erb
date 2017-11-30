@@ -1,17 +1,19 @@
 <h1> ::BudgetBoard:: All Transactions</h1>
-
-<div id="transaction_table">
-  <table style="width:80%">
+<div id="table-wrapper">
+<div id="table-scroll">
+  <table style="width:100%">
+    <thead>
     <tr>
-      <th> <a href='/transactions/new'>Add New Transaction</a> </th>
-      <th> Price </th>
-      <th> <a href='/vendors'>Check Vendors</a></th>
-      <th> <a href='/tags'>Check Categories</a></th>
-      <th> Date </th>
-      <th> Comments </th>
-      <th></th>
-      <th></th>
+      <th><span class="scrolling"><a href='/transactions/new'>Add Transaction</a></span></span> </th>
+      <th><span class="scrolling">Price</span> </th>
+      <th><span class="scrolling"><a href='/vendors'>Vendors</a></span></span></th>
+      <th><span class="scrolling"><a href='/tags'>Categories</a></span></th>
+      <th><span class="scrolling">Date</span> </th>
+      <th><span class="scrolling">Comments</th>
+      <th><span class="scrolling"></span></th>
+      <th><span class="scrolling"></span></th>
     </tr>
+  </thead>
   <% @transactions.each do |transaction| %>
    <tr>
      <td><%= transaction.name %></td>
@@ -21,8 +23,9 @@
      <td><%= transaction.date %></td>
      <td><%= transaction.comment %></td>
      <td> <a href="/transactions/<%= transaction.id %>/edit">Edit</a> </td>
-     <td> <form action="/transactions/<%= transaction.id %>/delete" method="POST"><input type="submit" value="Delete"></form> </td>
+     <td> <form action="/transactions/<%= transaction.id %>/delete" method="POST"><input class="input-button" type="submit" value="Delete"></form> </td>
     <% end %>
     </tr>
  </table>
+</div>
 </div>

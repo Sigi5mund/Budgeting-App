@@ -1,7 +1,7 @@
 
   <h1> ::BudgetBoard:: One Budget, Many Goals </h1>
 
-<a href='/transaction/delete'>Clear the Board and Set a new Budget</a>
+
 
 <% @total = 0 %>
 
@@ -9,39 +9,35 @@
   <% @total += transaction.price.to_i %>
 <% end %>
 
-<% if @total > @balance%>
-  <% @fail_total = @total - @balance %>
-  <h2 class="warning-box">  Your goal budget was £<%= sprintf('%.2f', (@balance.to_f/100)) %> but you have gone over by £<%= sprintf('%.2f', (@fail_total.to_f/100)) %>.</h2>
-<%end %>
-
-
+<% @fail_total = @total - @balance %>
 <% @grand_total =  @balance - @total%>
 
-<div id="dashboard" style="float: left;">
-<div>
+<div class="container">
+  <div class="left-col">
+<div class ="col-top">
   <table>
     <tr>
-      <th><a href='/budgets/1/edit'>Budget</a></th>
-      <th><a href='/transactions'>Spent so far</a></th>
+      <th><a href='/budgets/1/edit'>Set Budget</a></th>
+      <th><a href='/transactions'>Spent</th>
       <th><a href='/transactions/new'>Budget Remaining</a></th>
     </tr>
    <tr>
      <td>£<%= sprintf('%.2f', (@balance.to_f/100)) %></td>
      <td>£<%= sprintf('%.2f', (@total.to_f/100)) %></td>
-     <td>£<%= sprintf('%.2f', (@grand_total.to_f/100)) %></td>
+     <td style="<%= @total > @balance? "color: #ff6961;" : "color: #6dce6d;" %> ">£<%= sprintf('%.2f', (@grand_total.to_f/100)) %></td>
     </tr>
  </table>
 </div>
 
-<div style="float: right;">
-  <h5> Summary of the Last Five Transactions </h5>
-    <table>
+<div class="col-bottom">
+    <table style="width:100% padding-top: 10px">
       <tr>
-        <th><a href='/transactions'>Transactions</a></th>
-        <th><a href='/transactions'>Price</a></th>
-        <th><a href='/vendors'>Vendors</a></th>
-        <th><a href='/tags'>Categories</a> </th>
-        <th><a href='/transactions'>Date</a></th>
+        <th><a href='/transactions'>Summary</a></th>
+        <th>Price</th>
+        <th><a href='/vendors'>Vendor</a></th>
+        <th><a href='/tags'>Category</a> </th>
+        <th>Date</th>
+        <th>Comment </th>
       </tr>
     <% @transactions_last_five.each do |transaction| %>
      <tr>
@@ -50,17 +46,18 @@
        <td><%= StringHelper.titleize(transaction.vendor.name) %></td>
        <td><%= StringHelper.titleize(transaction.tag.category) %></td>
        <td><%= transaction.date %></td>
+       <td><%= transaction.comment %></td>
       <% end %>
       </tr>
    </table>
 </div>
-
-
-  <div>
-     <table>
+</div>
+<div class="right-col">
+  <div class ="col-left">
+     <table style="height:auto; width: 70px;">
       <tr>
-        <th> <a href='/tags'>Categories</a></th>
-        <th> <a href='/transactions'>Spent so far</a></th>
+        <th> <a href='/tags/new'>Categories</a></th>
+        <th> <a href='/transactions'>Spent</a></th>
       </tr>
     <% @tags.each do |tag| %>
      <tr>
@@ -70,12 +67,13 @@
     </tr>
   </table>
 </div>
-
-<div>
-  <table>
+</div>
+<div class="right-col">
+<div class="col-right">
+  <table style="height:auto; width: 70px;">
     <tr>
-      <th> <a href='/vendors'>Vendors</a></th>
-      <th> <a href='/transactions'>Spent so far</a></th>
+      <th> <a href='/vendors/new'>Vendors</a></th>
+      <th> <a href='/transactions'>Spent</a></th>
     </tr>
   <% @vendors.each do |vendor| %>
    <tr>
@@ -85,4 +83,6 @@
     </tr>
  </table>
 </div>
+</div>
+
 </div>

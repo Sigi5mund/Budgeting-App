@@ -49,6 +49,7 @@ end
 
 get '/vendors/new' do
   @vendors =Vendor.all
+
   erb(:new_vendor)
 end
 
@@ -58,7 +59,11 @@ get '/budgets/new' do
 end
 
 post '/transactions' do
-  Transaction.new(params).save
+  transaction =Transaction.new(params)
+  price = transaction.price.to_f
+  price *=100
+  transaction.price = price
+  transaction.save
   redirect to '/transactions'
 end
 
@@ -124,6 +129,9 @@ end
 
 put '/transactions/:id' do
   transaction = Transaction.new(params)
+  price = transaction.price.to_f
+  price *=100
+  transaction.price = price
   transaction.update
   redirect to "/transactions/#{params['id']}"
 end

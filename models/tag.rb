@@ -2,7 +2,6 @@ require_relative('../db/sql_runner')
 
 class Tag
 
-
 attr_accessor :id, :category
 
   def initialize(options)
@@ -11,25 +10,20 @@ attr_accessor :id, :category
   end
 
   def save
-    sql = "INSERT INTO tags
-    (category)
-    VALUES ($1)
-    RETURNING id"
+    sql = "INSERT INTO tags (category) VALUES ($1) RETURNING id"
     values = [@category]
     result = SqlRunner.run(sql, values)
     @id = result.first["id"].to_i
   end
 
   def update
-    sql = "UPDATE tags SET (category) = ($1)
-    WHERE id = $2"
+    sql = "UPDATE tags SET (category) = ($1) WHERE id = $2"
     values = [@category, @id]
     SqlRunner.run(sql, values)
   end
 
   def delete
-    sql = "DELETE FROM tags
-    WHERE id = $1"
+    sql = "DELETE FROM tags WHERE id = $1"
     values = [@id]
     SqlRunner.run(sql, values)
   end

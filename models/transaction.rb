@@ -4,7 +4,7 @@ require_relative('./vendor.rb')
 
 class Transaction
 
-   attr_accessor :tag_id, :price, :comment, :vendor_id, :date, :name, :id
+attr_accessor :tag_id, :price, :comment, :vendor_id, :date, :name, :id
 
   def initialize(options)
      @id = options['id'].to_i if options['id']
@@ -43,15 +43,13 @@ class Transaction
   end
 
   def update
-    sql = "UPDATE transactions SET (name, tag_id, price, vendor_id, date, comment) = ($1, $2, $3, $4, $5, $6)
-    WHERE id = $7"
+    sql = "UPDATE transactions SET (name, tag_id, price, vendor_id, date, comment) = ($1, $2, $3, $4, $5, $6) WHERE id = $7"
     values = [@name, @tag_id, @price, @vendor_id, @date, @comment, @id]
     SqlRunner.run(sql, values)
   end
 
   def delete
-    sql = "DELETE FROM transactions
-    WHERE id = $1"
+    sql = "DELETE FROM transactions WHERE id = $1"
     values = [@id]
     SqlRunner.run(sql, values)
   end
@@ -82,8 +80,7 @@ class Transaction
   end
 
   def self.find(id)
-    sql = "SELECT * FROM transactions
-    WHERE id = $1"
+    sql = "SELECT * FROM transactions WHERE id = $1"
     values = [id]
     result = SqlRunner.run(sql, values).first
     return Transaction.new(result)

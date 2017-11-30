@@ -3,22 +3,23 @@
   <input type="hidden" name="_method" value="put">
   <div class="form">
 
-
     <div class="form">
       <label for="name">Budget:£</label>
       <input type="number" name="balance" id="balance"
       value="<%= sprintf('%.2f', (@budget.balance.to_f/100)) %>"/>
     </div>
-<br>
 
-<div class="form">
-  <input class="input-button" type="submit" value="Save Budget"/>
-</div>
-<br>
-</div>
+    <br>
+
+    <div class="form">
+      <input class="input-button" type="submit" value="Save Budget"/>
+    </div>
+
+    <br>
+  </div>
 </form>
 
 <a href='/'>Back to Dashboard</a>
-<br>
-<br>
+  <br>
+  <br>
 <a href='/transactions'> Transactions</a>

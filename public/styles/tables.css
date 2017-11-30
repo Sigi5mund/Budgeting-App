@@ -2,17 +2,14 @@ table {
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
     color: black;
     border-collapse: collapse;
-    width: 100%;
-}
+    width: 100%;}
 
 td, th {
   border: 1px solid #ddd;
-  padding: 8px;
-}
+  padding: 8px;}
 
 tr:nth-child(even){
-  background-color: #f2f2f2;
-}
+  background-color: #f2f2f2;}
 
 
 th {
@@ -20,22 +17,18 @@ th {
     padding-bottom: 12px;
     text-align: left;
     background-color: #64e56a;
-    color: purple;
-}
+    color: purple;}
 
 #table-wrapper{
-  position: relative;
-}
+  position: relative;}
 
 #table-scroll{
   height:450px;
   overflow: auto;
-  margin: 20px;
-}
+  margin: 20px;}
 
 #table-wrapper thead .scrolling {
   /*position: absolute;*/
   top: -20px;
   z-index: 2;
-  height: 10px;
-}
+  height: 10px;}

@@ -10,25 +10,20 @@ attr_accessor :id, :balance
   end
 
   def save
-    sql = "INSERT INTO budgets
-    (balance)
-    VALUES ($1)
-    RETURNING id"
+    sql = "INSERT INTO budgets (balance) VALUES ($1) RETURNING id"
     values = [@balance]
     result = SqlRunner.run(sql, values)
     @id = result.first["id"].to_i
   end
 
   def update
-    sql = "UPDATE budgets SET (balance) = ($1)
-    WHERE id = $2"
+    sql = "UPDATE budgets SET (balance) = ($1) WHERE id = $2"
     values = [@balance, @id]
     SqlRunner.run(sql, values)
   end
 
   def self.find(id)
-    sql = "SELECT * FROM budgets
-    WHERE id = $1"
+    sql = "SELECT * FROM budgets WHERE id = $1"
     values = [id]
     result = SqlRunner.run(sql ,values).first
     return Budget.new(result)

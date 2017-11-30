@@ -1,5 +1,6 @@
 <h1> ::BudgetBoard:: All Categories</h1>
-<div id="transaction_table">
+
+<div>
    <table style="width:80%">
     <tr>
       <th> <a href='/tags/new'>Add Category</a</th>
@@ -11,14 +12,12 @@
    <tr>
      <td><%= StringHelper.titleize(tag.category) %></td>
      <td> £<%= sprintf('%.2f', (tag.total.to_f/100))%></td>
-
      <td> <a href="/tags/<%= tag.id %>/edit">Edit</a> </td>
      <td> <form action="/tags/<%= tag.id %>/delete" method="POST"><input class="input-button" type="submit" value="Delete"></form> </td>
-
      <% end %>
     </tr>
-
- </table>
+  </table>
+</div>
 
 <div>
   <h3> When deleting a tag, please remember this will delete all transactions with this tag. Don't delete unless you have sorted your transactions already! </h3>

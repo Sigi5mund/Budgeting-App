@@ -5,32 +5,26 @@ class Vendor
 
 attr_reader :id, :name
 
-
   def initialize(options)
     @id = options['id'].to_i if options['id']
     @name = options['name'].capitalize
   end
 
   def save
-    sql = "INSERT INTO vendors
-    (name)
-    VALUES ($1)
-    RETURNING id"
+    sql = "INSERT INTO vendors (name) VALUES ($1) RETURNING id"
     values = [@name]
     result = SqlRunner.run(sql, values)
     @id = result.first["id"].to_i
   end
 
   def update
-    sql = "UPDATE vendors SET (name) = ($1)
-    WHERE id = $2"
+    sql = "UPDATE vendors SET (name) = ($1) WHERE id = $2"
     values = [@name, @id]
     SqlRunner.run(sql, values)
   end
 
   def delete
-    sql = "DELETE FROM vendors
-    WHERE id = $1"
+    sql = "DELETE FROM vendors WHERE id = $1"
     values = [@id]
     SqlRunner.run(sql, values)
   end
@@ -43,8 +37,7 @@ attr_reader :id, :name
   end
 
   def self.find(id)
-    sql = "SELECT * FROM vendors
-    WHERE id = $1"
+    sql = "SELECT * FROM vendors WHERE id = $1"
     values = [id]
     result = SqlRunner.run(sql ,values).first
     return Vendor.new(result)

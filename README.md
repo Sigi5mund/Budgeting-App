@@ -18,10 +18,6 @@ Prerequisites
 
 You will need ruby, psql, sinatra and a web browser such as chrome.
 
-Once the app is running in the browser, to make sure it is working type 
-
-
-End with an example of getting some data out of the system or using it for a little demo
 
 
 
